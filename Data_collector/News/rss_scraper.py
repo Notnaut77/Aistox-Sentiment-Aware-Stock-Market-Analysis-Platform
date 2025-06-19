@@ -42,4 +42,4 @@ def save_articles_to_json(articles, file_path="news_articles.json"):
 
 if __name__ == "__main__":
     news_articles = fetch_news_articles()
-    save_articles_to_json(news_articles, "data_collector/news/news_articles.json")
+    save_articles_to_json(news_articles, "Data_collector/News/news_articles.json")
