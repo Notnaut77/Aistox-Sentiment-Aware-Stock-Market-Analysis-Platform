@@ -1,8 +1,8 @@
 # ⛺ Aistox: Sentiment-Aware Stock Market Analysis Platform
 
 > Currently under active development.  
-> We are documenting all progress and research notes on our Notion workspace.  
-> 🔍 You can follow along by referring to the file:  
-> [`/documents/Notion Notes and WalkThrough.txt`](documents/Notion%20Notes%20and%20WalkThrough.txt)
+> We are documenting all research, feature breakdowns, and walkthroughs in our Notion workspace.  
+> 🔍 You can follow along via this file:  
+> [`Documents/Notion Notes and WalkThrough.txt`](Documents/Notion%20Notes%20and%20WalkThrough.txt)
 
-A full-featured Notion webpage and downloadable PDF will be added soon to this repository.
+📄 A full-fledged Notion webpage and PDF version will be added soon for easier access and sharing.
