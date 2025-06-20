@@ -2,9 +2,9 @@ import praw
 import json
 import os
 
-REDDIT_CLIENT_ID = "Vt7dbw6ZwUjz1zt0w8jzUQ"
-REDDIT_SECRET = "K9RpGfHErHezalBpYfqLf0OV5pwSvg"
-REDDIT_USER_AGENT = "aistox.sentiment.v1 (by /u/Shoddy_Web3843)"
+REDDIT_CLIENT_ID = ""
+REDDIT_SECRET = ""
+REDDIT_USER_AGENT = ""
 
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "reddit_posts.json")
 SUBREDDITS = ["IndiaInvestments", "StockMarket", "IndianStreetBets", "Nifty50", "IndianStockMarket"]

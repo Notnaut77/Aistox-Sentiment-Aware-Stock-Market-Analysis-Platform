@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 
-BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAMN22gEAAAAA9zsM9sW32ZWBE4hACyffOrrs9UE%3D5GFtTJyjiStkKexLPecyZ1PG2ikuXirGpLpyWVliksZXAjKoX5"
+BEARER_TOKEN = ""
 OUTPUT_FILE = "Data_collector/twitter/tweets_stream.json"
 
 class TweetStreamer(tweepy.StreamingClient):
