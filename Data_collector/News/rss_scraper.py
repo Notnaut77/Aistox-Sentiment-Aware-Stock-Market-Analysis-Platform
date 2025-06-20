@@ -34,7 +34,9 @@ def fetch_news_articles():
                 continue
     return articles
 
-def save_articles_to_json(articles, file_path="news_articles.json"):
+def save_articles_to_json(articles, filename="news_articles.json"):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, filename)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(articles, f, indent=4, ensure_ascii=False)
@@ -42,4 +44,4 @@ def save_articles_to_json(articles, file_path="news_articles.json"):
 
 if __name__ == "__main__":
     news_articles = fetch_news_articles()
-    save_articles_to_json(news_articles, "Data_collector/News/news_articles.json")
+    save_articles_to_json(news_articles, "news_articles.json")
