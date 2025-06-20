@@ -6,7 +6,7 @@ REDDIT_CLIENT_ID = "Vt7dbw6ZwUjz1zt0w8jzUQ"
 REDDIT_SECRET = "K9RpGfHErHezalBpYfqLf0OV5pwSvg"
 REDDIT_USER_AGENT = "aistox.sentiment.v1 (by /u/Shoddy_Web3843)"
 
-OUTPUT_FILE = "Data_collector/reddit/reddit_posts.json"
+OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "reddit_posts.json")
 SUBREDDITS = ["IndiaInvestments", "StockMarket", "IndianStreetBets", "Nifty50", "IndianStockMarket"]
 KEYWORDS = ["TCS", "INFY", "nifty", "market", "stock"]
 
