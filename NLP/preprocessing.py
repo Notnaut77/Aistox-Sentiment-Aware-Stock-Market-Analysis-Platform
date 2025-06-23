@@ -31,13 +31,22 @@ def process_file(input_path, output_path, text_fields):
     with open(input_path, "r", encoding="utf-8") as infile:
         data = json.load(infile)
 
+    cleaned_data = []
+
     for entry in data:
         combined_text = " ".join([entry.get(field, "") for field in text_fields])
-        entry["cleaned_text"] = preprocess_text(combined_text)
+        cleaned_entry = {
+            "cleaned_text": preprocess_text(combined_text),
+            "published": entry.get("published", ""),
+            "source": entry.get("source", ""),
+            "original": entry  # optional: keep full original for traceability (can remove if not needed)
+        }
+        cleaned_data.append(cleaned_entry)
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as outfile:
-        json.dump(data, outfile, indent=4, ensure_ascii=False)
+        json.dump(cleaned_data, outfile, indent=4, ensure_ascii=False)
+
     print(f"[✓] Cleaned and saved → {output_path}")
 
 sources = [

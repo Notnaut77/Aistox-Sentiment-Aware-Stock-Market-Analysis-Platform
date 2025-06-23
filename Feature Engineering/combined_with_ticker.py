@@ -32,13 +32,14 @@ def extract_first_org_ticker(entities):
     try:
         ents = ast.literal_eval(entities)
         for ent in ents:
-            if ent.get("label") == "ORG":
+            if isinstance(ent, dict) and ent.get("label") == "ORG":
                 name = ent.get("text", "").strip()
-                ticker = query_yahoo_ticker(name)
-                if ticker:
-                    return ticker
-    except:
-        return None
+                if name:
+                    ticker = query_yahoo_ticker(name)
+                    if ticker:
+                        return ticker
+    except Exception as e:
+        print(f"[!] Failed to parse entities: {e}")
     return None
 
 df["ticker"] = df["entities"].apply(extract_first_org_ticker)

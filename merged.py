@@ -24,16 +24,16 @@ for source, base_path in sources.items():
 
     merged = []
     for i in range(len(datasets["cleaned"])):
-        merged_entry = {}
-        merged_entry["cleaned_text"] = datasets["cleaned"][i].get("cleaned_text", "")
-        merged_entry.update({
+        merged_entry = {
+            "cleaned_text": datasets["cleaned"][i].get("cleaned_text", ""),
             "sentiment": datasets["sentiment"][i].get("sentiment", datasets["sentiment"][i]),
             "emotion": datasets["emotions"][i].get("emotion", datasets["emotions"][i]),
             "entities": datasets["ner"][i].get("entities", []),
             "topic_id": datasets["topics"][i].get("topic_id", None),
-            "topic_keywords": datasets["topics"][i].get("topic_keywords", [])
-        })
-        merged_entry["source"] = source
+            "topic_keywords": datasets["topics"][i].get("topic_keywords", []),
+            "published": datasets["sentiment"][i].get("published", ""),  # ✅ Get from any stage that preserved it
+            "source": source
+        }
         merged.append(merged_entry)
 
     json_output_path = os.path.join(base_path, f"{source}_posts_final.json") if source == "reddit" else os.path.join(base_path, f"news_articles_final.json")
@@ -45,6 +45,7 @@ for source, base_path in sources.items():
     for entry in merged:
         flat_data.append({
             "cleaned_text": entry["cleaned_text"],
+            "published": entry["published"],
             "source": entry["source"],
             "sentiment": json.dumps(entry["sentiment"]),
             "emotion": json.dumps(entry["emotion"]),
@@ -52,8 +53,9 @@ for source, base_path in sources.items():
             "topic_id": entry["topic_id"],
             "topic_keywords": ", ".join([kw[0] if isinstance(kw, list) else kw for kw in entry["topic_keywords"]])
         })
+
     df = pd.DataFrame(flat_data)
     df.to_csv(csv_output_path, index=False, encoding="utf-8")
 
     print(f"[✓] merged JSON → {json_output_path}")
-    print(f"[✓]  merged CSV → {csv_output_path}")
+    print(f"[✓] merged CSV  → {csv_output_path}")
