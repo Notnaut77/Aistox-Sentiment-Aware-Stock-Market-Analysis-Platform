@@ -4,6 +4,7 @@
 
 > This is not about building a market oracle. It’s about extracting structure from noise, exploring sentiment-driven narratives, and creating transparent, interpretable prediction systems.
 
+You can refer to the research paper saved as Aistox_paper.pdf and the notion document saved as Aistox_summary.pdf for complete guide on how to create such a project.
 ---
 
 ## Problem Statement
