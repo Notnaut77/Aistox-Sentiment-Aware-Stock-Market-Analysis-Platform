@@ -48,7 +48,7 @@ def extract_sentiment(text):
         "sent_vader_compound": vs["compound"],
         "sent_textblob_polarity": tb,
         "hour": datetime.now().hour,
-        "topic_id": 0  # optional, if topic model not available
+        "topic_id": 0  
     }
 
 def predict_direction(raw_text):
